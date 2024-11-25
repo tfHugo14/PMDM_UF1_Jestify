@@ -1,10 +1,10 @@
-package com.example.pmdm_uf1_jestify.ui.dashboard
+package com.example.pmdm_uf1_jestify.ui.favourites
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DashboardViewModel : ViewModel() {
+class FavouritesViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is the favourites section"

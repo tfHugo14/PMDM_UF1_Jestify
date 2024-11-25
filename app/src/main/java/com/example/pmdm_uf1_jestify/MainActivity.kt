@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.pmdm_uf1_jestify.databinding.ActivityMainBinding
 import com.google.android.material.appbar.MaterialToolbar
@@ -23,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         val actionBar = findViewById<MaterialToolbar>(R.id.toolbar)
         setSupportActionBar(actionBar)
 
-        val drawerLayout = findViewById<DrawerLayout>(R.id.container)
+        val drawerLayout = findViewById<DrawerLayout>(R.id.mainDrawerLayout)
 
         val navView: BottomNavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
