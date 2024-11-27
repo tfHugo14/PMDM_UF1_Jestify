@@ -22,16 +22,16 @@ class MainActivity : AppCompatActivity() {
         val actionBar = findViewById<MaterialToolbar>(R.id.toolbar)
         setSupportActionBar(actionBar)
 
-        val drawerLayout = findViewById<DrawerLayout>(R.id.mainDrawerLayout)
+        //val drawerLayout = findViewById<DrawerLayout>(R.id.mainDrawerLayout)
 
         val navView: BottomNavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
 
-        val appBarConfiguration =  AppBarConfiguration.Builder(navController.graph)
-        appBarConfiguration.setOpenableLayout(drawerLayout)
-        val appBarBuild = appBarConfiguration.build()
+        //val appBarConfiguration =  AppBarConfiguration.Builder(navController.graph)
+        //appBarConfiguration.setOpenableLayout(drawerLayout)
+        //val appBarBuild = appBarConfiguration.build()
 
         navView.setupWithNavController(navController)
-        actionBar.setupWithNavController(navController, appBarBuild)
+        //actionBar.setupWithNavController(navController, appBarBuild)
     }
 }
