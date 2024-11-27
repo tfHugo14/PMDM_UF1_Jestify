@@ -2,47 +2,72 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linear_layout_fragment_home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center_vertical"
+    android:gravity="center"
     tools:context=".ui.home.HomeFragment">
 
-    <LinearLayout
+    <!-- app:layout_anchor="@+id/linear_layout_fragment_home" -->
+    <androidx.core.widget.NestedScrollView
+        app:layout_anchor="@+id/linear_layout_fragment_home"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        app:layout_anchorGravity="center"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <Button
-            android:id="@+id/btn_programming"
-            android:layout_width="match_parent"
-            android:layout_margin="15dp"
-            android:layout_height="wrap_content"
-            android:text="Programming" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btn_miscellanea"
-            android:layout_width="match_parent"
-            android:layout_margin="15dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:text="Miscellanea" />
+                <Button
+                    android:id="@+id/btn_programming"
+                    android:layout_width="match_parent"
+                    android:layout_margin="15dp"
+                    android:layout_height="200dp"
+                    android:text="@string/programming" />
 
-        <Button
-            android:id="@+id/btn_dark"
-            android:layout_width="match_parent"
-            android:layout_margin="15dp"
-            android:layout_height="wrap_content"
-            android:text="Dark" />
+                <Button
+                    android:id="@+id/btn_miscellanea"
+                    android:layout_width="match_parent"
+                    android:layout_margin="15dp"
+                    android:layout_height="200dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/miscellanea" />
 
-        <Button
-            android:id="@+id/btn_pun"
-            android:layout_width="match_parent"
-            android:layout_margin="15dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="68dp"
-            android:text="Pun" />
-    </LinearLayout>
+                <Button
+                    android:id="@+id/btn_dark"
+                    android:layout_width="match_parent"
+                    android:layout_margin="15dp"
+                    android:layout_height="200dp"
+                    android:text="@string/dark" />
 
+                <Button
+                    android:id="@+id/btn_pun"
+                    android:layout_width="match_parent"
+                    android:layout_margin="15dp"
+                    android:layout_height="200dp"
+                    android:layout_marginEnd="68dp"
+                    android:text="@string/pun" />
+
+                <Button
+                    android:id="@+id/btn_spooky"
+                    android:layout_width="match_parent"
+                    android:layout_margin="15dp"
+                    android:layout_height="200dp"
+                    android:text="@string/spooky" />
+
+                <Button
+                    android:id="@+id/btn_christmas"
+                    android:layout_width="match_parent"
+                    android:layout_margin="15dp"
+                    android:layout_height="200dp"
+                    android:layout_marginEnd="68dp"
+                    android:text="@string/christmas" />
+
+            </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>

@@ -7,4 +7,11 @@
     <string name="create">Create</string>
     <string name="jestify">Jestify</string>
     <string name="jestify_icon_description">Jestify Icon</string>
+    <string name="spooky">Spooky</string>
+    <string name="christmas">Christmas</string>
+    <string name="pun">Pun</string>
+    <string name="dark">Dark</string>
+    <string name="miscellanea">Miscellanea</string>
+    <string name="programming">Programming</string>
+    <string name="btn_new_joke">New Joke</string>
 </resources>
