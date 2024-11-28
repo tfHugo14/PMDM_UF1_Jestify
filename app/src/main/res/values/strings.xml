@@ -13,5 +13,22 @@
     <string name="dark">Dark</string>
     <string name="miscellanea">Miscellanea</string>
     <string name="programming">Programming</string>
-    <string name="btn_new_joke">New Joke</string>
+    <string name="btn_create_joke">Create Joke</string>
+    <string name="create_joke_text">Create a Joke yourself!</string>
+    <string name="joke_setup">Joke Setup</string>
+    <string name="joke_delivery">Joke Delivery</string>
+    <string name="flag_explicit">explicit</string>
+    <string name="flag_sexist">sexist</string>
+    <string name="flag_racist">racist</string>
+    <string name="flag_political">political</string>
+    <string name="flag_religious">religious</string>
+    <string name="flag_nsfw">nsfw</string>
+    <string-array name="joke_types">
+        <item>@string/programming</item>
+        <item>@string/miscellanea</item>
+        <item>@string/dark</item>
+        <item>@string/pun</item>
+        <item>@string/spooky</item>
+        <item>@string/christmas</item>
+    </string-array>
 </resources>

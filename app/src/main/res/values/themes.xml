@@ -1,6 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Theme.PMDM_UF1_Jestify" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-
         <item name="colorPrimary">@color/dim_teal</item>
         <item name="colorPrimaryVariant">@color/red</item>
         <item name="colorOnPrimary">@color/white</item>
@@ -9,7 +8,16 @@
         <item name="colorSecondaryVariant">@color/darker_teal</item>
         <item name="colorOnSecondary">@color/light_teal</item>
 
-        <item name="android:statusBarColor">?attr/colorSecondaryVariant</item>
+        <item name="colorPrimaryContainer">@color/dim_teal</item>
+        <item name="colorOnPrimaryContainer">@color/light_teal</item>
+        <item name="colorSecondaryContainer">@color/darker_teal</item>
+        <item name="colorOnSecondaryContainer">@color/dim_teal</item>
+        <item name="colorTertiaryContainer">@color/light_grey</item>
+        <item name="colorOnTertiaryContainer">@color/grey</item>
 
+        <item name="android:colorBackground">@color/white</item>
+        <item name="colorOnBackground">@color/light_teal</item>
+
+        <item name="android:statusBarColor">?attr/colorSecondaryVariant</item>
     </style>
 </resources>
