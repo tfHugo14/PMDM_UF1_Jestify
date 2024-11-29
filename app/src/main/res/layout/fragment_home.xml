@@ -28,6 +28,14 @@
                     android:layout_width="match_parent"
                     android:layout_margin="15dp"
                     android:layout_height="200dp"
+                    android:background="@drawable/programming"
+                    app:backgroundTint="@null"
+                    android:textColor="@color/dim_teal"
+                    android:textSize="40dp"
+                    android:shadowColor="@color/light_teal"
+                    android:shadowDx="5"
+                    android:shadowRadius="2"
+                    android:gravity="bottom"
                     android:text="@string/programming" />
 
                 <Button
@@ -36,6 +44,14 @@
                     android:layout_margin="15dp"
                     android:layout_height="200dp"
                     android:layout_marginEnd="48dp"
+                    android:background="@drawable/miscellanea"
+                    app:backgroundTint="@null"
+                    android:textColor="@color/dim_teal"
+                    android:textSize="40dp"
+                    android:shadowColor="@color/light_teal"
+                    android:shadowDx="5"
+                    android:shadowRadius="2"
+                    android:gravity="bottom"
                     android:text="@string/miscellanea" />
 
                 <Button
@@ -43,6 +59,14 @@
                     android:layout_width="match_parent"
                     android:layout_margin="15dp"
                     android:layout_height="200dp"
+                    android:background="@drawable/dark"
+                    app:backgroundTint="@null"
+                    android:textColor="@color/dim_teal"
+                    android:textSize="40dp"
+                    android:shadowColor="@color/light_teal"
+                    android:shadowDx="5"
+                    android:shadowRadius="2"
+                    android:gravity="bottom"
                     android:text="@string/dark" />
 
                 <Button
@@ -51,6 +75,14 @@
                     android:layout_margin="15dp"
                     android:layout_height="200dp"
                     android:layout_marginEnd="68dp"
+                    android:background="@drawable/pun"
+                    app:backgroundTint="@null"
+                    android:textColor="@color/dim_teal"
+                    android:textSize="40dp"
+                    android:shadowColor="@color/light_teal"
+                    android:shadowDx="5"
+                    android:shadowRadius="2"
+                    android:gravity="bottom"
                     android:text="@string/pun" />
 
                 <Button
@@ -58,6 +90,14 @@
                     android:layout_width="match_parent"
                     android:layout_margin="15dp"
                     android:layout_height="200dp"
+                    android:background="@drawable/spooky"
+                    app:backgroundTint="@null"
+                    android:textColor="@color/dim_teal"
+                    android:textSize="40dp"
+                    android:shadowColor="@color/light_teal"
+                    android:shadowDx="5"
+                    android:shadowRadius="2"
+                    android:gravity="bottom"
                     android:text="@string/spooky" />
 
                 <Button
@@ -66,6 +106,14 @@
                     android:layout_margin="15dp"
                     android:layout_height="200dp"
                     android:layout_marginEnd="68dp"
+                    android:background="@drawable/christmas"
+                    app:backgroundTint="@null"
+                    android:textColor="@color/dim_teal"
+                    android:textSize="40dp"
+                    android:shadowColor="@color/light_teal"
+                    android:shadowDx="5"
+                    android:shadowRadius="2"
+                    android:gravity="bottom"
                     android:text="@string/christmas" />
 
             </LinearLayout>
