@@ -1,15 +1,18 @@
-package com.example.pmdm_uf1_jestify.ui.favourites
+package com.example.pmdm_uf1_jestify.ui.joke
 
+import androidx.fragment.app.viewModels
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.pmdm_uf1_jestify.R
 import com.example.pmdm_uf1_jestify.databinding.FragmentFavouritesBinding
+import com.example.pmdm_uf1_jestify.ui.favourites.FavouritesViewModel
 
-class FavouritesFragment : Fragment() {
+class JokeFragment : Fragment() {
 
     private var _binding: FragmentFavouritesBinding? = null
 
@@ -22,14 +25,14 @@ class FavouritesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val favouritesViewModel =
+        val jokeViewModel =
             ViewModelProvider(this).get(FavouritesViewModel::class.java)
 
         _binding = FragmentFavouritesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textDashboard
-        favouritesViewModel.text.observe(viewLifecycleOwner) {
+        jokeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
         return root
