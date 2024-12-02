@@ -1,4 +1,4 @@
-package com.example.pmdm_uf1_jestify
+package com.example.pmdm_uf1_jestify_2
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.example.pmdm_uf1_jestify", appContext.packageName)
+        assertEquals("com.example.pmdm_uf1_jestify_2", appContext.packageName)
     }
 }

@@ -1,12 +1,13 @@
-package com.example.pmdm_uf1_jestify.ui.joke
+package com.example.pmdm_uf1_jestify_2.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class JokeViewModel : ViewModel() {
+class HomeViewModel : ViewModel() {
+
     private val _text = MutableLiveData<String>().apply {
-        value = "This is the joke section"
+        value = "This is home Fragment"
     }
     val text: LiveData<String> = _text
 }

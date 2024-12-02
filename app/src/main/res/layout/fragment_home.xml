@@ -17,105 +17,105 @@
         app:layout_anchorGravity="center"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <LinearLayout
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_programming"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_margin="15dp"
+                android:layout_height="200dp"
+                android:background="@drawable/programming"
+                app:backgroundTint="@null"
+                android:textColor="@color/dim_teal"
+                android:textSize="40dp"
+                android:shadowColor="@color/light_teal"
+                android:shadowDx="5"
+                android:shadowRadius="2"
+                android:gravity="bottom"
+                android:text="@string/programming" />
 
-                <Button
-                    android:id="@+id/btn_programming"
-                    android:layout_width="match_parent"
-                    android:layout_margin="15dp"
-                    android:layout_height="200dp"
-                    android:background="@drawable/programming"
-                    app:backgroundTint="@null"
-                    android:textColor="@color/dim_teal"
-                    android:textSize="40dp"
-                    android:shadowColor="@color/light_teal"
-                    android:shadowDx="5"
-                    android:shadowRadius="2"
-                    android:gravity="bottom"
-                    android:text="@string/programming" />
+            <Button
+                android:id="@+id/btn_miscellanea"
+                android:layout_width="match_parent"
+                android:layout_margin="15dp"
+                android:layout_height="200dp"
+                android:layout_marginEnd="48dp"
+                android:background="@drawable/miscellanea"
+                app:backgroundTint="@null"
+                android:textColor="@color/dim_teal"
+                android:textSize="40dp"
+                android:shadowColor="@color/light_teal"
+                android:shadowDx="5"
+                android:shadowRadius="2"
+                android:gravity="bottom"
+                android:text="@string/miscellanea" />
 
-                <Button
-                    android:id="@+id/btn_miscellanea"
-                    android:layout_width="match_parent"
-                    android:layout_margin="15dp"
-                    android:layout_height="200dp"
-                    android:layout_marginEnd="48dp"
-                    android:background="@drawable/miscellanea"
-                    app:backgroundTint="@null"
-                    android:textColor="@color/dim_teal"
-                    android:textSize="40dp"
-                    android:shadowColor="@color/light_teal"
-                    android:shadowDx="5"
-                    android:shadowRadius="2"
-                    android:gravity="bottom"
-                    android:text="@string/miscellanea" />
+            <Button
+                android:id="@+id/btn_dark"
+                android:layout_width="match_parent"
+                android:layout_margin="15dp"
+                android:layout_height="200dp"
+                android:background="@drawable/dark"
+                app:backgroundTint="@null"
+                android:textColor="@color/dim_teal"
+                android:textSize="40dp"
+                android:shadowColor="@color/light_teal"
+                android:shadowDx="5"
+                android:shadowRadius="2"
+                android:gravity="bottom"
+                android:text="@string/dark" />
 
-                <Button
-                    android:id="@+id/btn_dark"
-                    android:layout_width="match_parent"
-                    android:layout_margin="15dp"
-                    android:layout_height="200dp"
-                    android:background="@drawable/dark"
-                    app:backgroundTint="@null"
-                    android:textColor="@color/dim_teal"
-                    android:textSize="40dp"
-                    android:shadowColor="@color/light_teal"
-                    android:shadowDx="5"
-                    android:shadowRadius="2"
-                    android:gravity="bottom"
-                    android:text="@string/dark" />
+            <Button
+                android:id="@+id/btn_pun"
+                android:layout_width="match_parent"
+                android:layout_margin="15dp"
+                android:layout_height="200dp"
+                android:layout_marginEnd="68dp"
+                android:background="@drawable/pun"
+                app:backgroundTint="@null"
+                android:textColor="@color/dim_teal"
+                android:textSize="40dp"
+                android:shadowColor="@color/light_teal"
+                android:shadowDx="5"
+                android:shadowRadius="2"
+                android:gravity="bottom"
+                android:text="@string/pun" />
 
-                <Button
-                    android:id="@+id/btn_pun"
-                    android:layout_width="match_parent"
-                    android:layout_margin="15dp"
-                    android:layout_height="200dp"
-                    android:layout_marginEnd="68dp"
-                    android:background="@drawable/pun"
-                    app:backgroundTint="@null"
-                    android:textColor="@color/dim_teal"
-                    android:textSize="40dp"
-                    android:shadowColor="@color/light_teal"
-                    android:shadowDx="5"
-                    android:shadowRadius="2"
-                    android:gravity="bottom"
-                    android:text="@string/pun" />
+            <Button
+                android:id="@+id/btn_spooky"
+                android:layout_width="match_parent"
+                android:layout_margin="15dp"
+                android:layout_height="200dp"
+                android:background="@drawable/spooky"
+                app:backgroundTint="@null"
+                android:textColor="@color/dim_teal"
+                android:textSize="40dp"
+                android:shadowColor="@color/light_teal"
+                android:shadowDx="5"
+                android:shadowRadius="2"
+                android:gravity="bottom"
+                android:text="@string/spooky" />
 
-                <Button
-                    android:id="@+id/btn_spooky"
-                    android:layout_width="match_parent"
-                    android:layout_margin="15dp"
-                    android:layout_height="200dp"
-                    android:background="@drawable/spooky"
-                    app:backgroundTint="@null"
-                    android:textColor="@color/dim_teal"
-                    android:textSize="40dp"
-                    android:shadowColor="@color/light_teal"
-                    android:shadowDx="5"
-                    android:shadowRadius="2"
-                    android:gravity="bottom"
-                    android:text="@string/spooky" />
+            <Button
+                android:id="@+id/btn_christmas"
+                android:layout_width="match_parent"
+                android:layout_margin="15dp"
+                android:layout_height="200dp"
+                android:layout_marginEnd="68dp"
+                android:background="@drawable/christmas"
+                app:backgroundTint="@null"
+                android:textColor="@color/dim_teal"
+                android:textSize="40dp"
+                android:shadowColor="@color/light_teal"
+                android:shadowDx="5"
+                android:shadowRadius="2"
+                android:gravity="bottom"
+                android:text="@string/christmas" />
 
-                <Button
-                    android:id="@+id/btn_christmas"
-                    android:layout_width="match_parent"
-                    android:layout_margin="15dp"
-                    android:layout_height="200dp"
-                    android:layout_marginEnd="68dp"
-                    android:background="@drawable/christmas"
-                    app:backgroundTint="@null"
-                    android:textColor="@color/dim_teal"
-                    android:textSize="40dp"
-                    android:shadowColor="@color/light_teal"
-                    android:shadowDx="5"
-                    android:shadowRadius="2"
-                    android:gravity="bottom"
-                    android:text="@string/christmas" />
-
-            </LinearLayout>
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>

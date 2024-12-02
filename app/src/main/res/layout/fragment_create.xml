@@ -15,7 +15,7 @@
         android:text="@string/create_joke_text"
         android:textAlignment="center"
         android:textSize="25sp"
-    />
+        />
 
     <androidx.core.widget.NestedScrollView
         app:layout_anchor="@+id/linear_layout_fragment_create"
@@ -56,71 +56,71 @@
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
                 />
-    <Spinner
-        android:id="@+id/joke_types_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:background="@color/dim_teal"
-        android:popupBackground="@color/light_grey"
-        android:padding="5dp"
-        android:entries="@array/joke_types" />
+            <Spinner
+                android:id="@+id/joke_types_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:background="@color/dim_teal"
+                android:popupBackground="@color/light_grey"
+                android:padding="5dp"
+                android:entries="@array/joke_types" />
 
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/extras"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="15dp">
-
-            <com.google.android.material.chip.Chip
-                style="@style/Widget.MaterialComponents.Chip.Choice"
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/extras"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/flag_nsfw" />
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="15dp">
 
-            <com.google.android.material.chip.Chip
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/flag_religious" />
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/flag_nsfw" />
 
-            <com.google.android.material.chip.Chip
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/flag_political" />
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/flag_religious" />
 
-            <com.google.android.material.chip.Chip
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/flag_racist" />
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/flag_political" />
 
-            <com.google.android.material.chip.Chip
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/flag_sexist" />
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/flag_racist" />
 
-            <com.google.android.material.chip.Chip
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/flag_explicit" />
-        </com.google.android.material.chip.ChipGroup>
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/flag_sexist" />
 
-        <Button
-            android:id="@+id/btn_create_joke"
-            android:layout_width="match_parent"
-            android:layout_marginLeft="50dp"
-            android:layout_marginBottom="150dp"
-            android:layout_marginRight="50dp"
-            android:layout_height="100dp"
-            android:text="@string/btn_create_joke"
-            />
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/flag_explicit" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <Button
+                android:id="@+id/btn_create_joke"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="50dp"
+                android:layout_marginBottom="150dp"
+                android:layout_marginRight="50dp"
+                android:layout_height="100dp"
+                android:text="@string/btn_create_joke"
+                />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>

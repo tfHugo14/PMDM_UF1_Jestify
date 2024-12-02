@@ -1,4 +1,4 @@
-package com.example.pmdm_uf1_jestify.ui.joke
+package com.example.pmdm_uf1_jestify_2.ui.create
 
 import androidx.fragment.app.viewModels
 import android.os.Bundle
@@ -6,15 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
-import com.example.pmdm_uf1_jestify.R
-import com.example.pmdm_uf1_jestify.databinding.FragmentFavouritesBinding
-import com.example.pmdm_uf1_jestify.ui.favourites.FavouritesViewModel
+import com.example.pmdm_uf1_jestify_2.R
+import com.example.pmdm_uf1_jestify_2.databinding.FragmentCreateBinding
 
-class JokeFragment : Fragment() {
+class CreateFragment : Fragment() {
 
-    private var _binding: FragmentFavouritesBinding? = null
+    private var _binding: FragmentCreateBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,15 +23,14 @@ class JokeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val jokeViewModel =
-            ViewModelProvider(this).get(FavouritesViewModel::class.java)
+        val createViewModel =
+            ViewModelProvider(this).get(CreateViewModel::class.java)
 
-        _binding = FragmentFavouritesBinding.inflate(inflater, container, false)
+        _binding = FragmentCreateBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
-        jokeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        createViewModel.text.observe(viewLifecycleOwner) {
+
         }
         return root
     }

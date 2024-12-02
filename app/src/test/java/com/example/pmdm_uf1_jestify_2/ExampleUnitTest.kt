@@ -1,4 +1,4 @@
-package com.example.pmdm_uf1_jestify
+package com.example.pmdm_uf1_jestify_2
 
 import org.junit.Test
 

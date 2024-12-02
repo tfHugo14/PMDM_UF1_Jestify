@@ -1,4 +1,4 @@
-package com.example.pmdm_uf1_jestify.ui.create
+package com.example.pmdm_uf1_jestify_2.ui.create
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

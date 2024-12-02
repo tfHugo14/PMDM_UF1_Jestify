@@ -1,14 +1,15 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("androidx.navigation.safeargs")
 }
 
 android {
-    namespace = "com.example.pmdm_uf1_jestify"
+    namespace = "com.example.pmdm_uf1_jestify_2"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.pmdm_uf1_jestify"
+        applicationId = "com.example.pmdm_uf1_jestify_2"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -39,7 +40,6 @@ android {
 }
 
 dependencies {
-    implementation("com.google.android.material:material:1.10.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

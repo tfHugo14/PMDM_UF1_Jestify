@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "PMDM_UF1_Jestify"
+rootProject.name = "PMDM_UF1_Jestify_2"
 include(":app")
  

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.pmdm_uf1_jestify.ui.home.HomeFragment"
+        android:name="com.example.pmdm_uf1_jestify_2.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -17,19 +17,26 @@
 
     <fragment
         android:id="@+id/navigation_favourites"
-        android:name="com.example.pmdm_uf1_jestify.ui.favourites.FavouritesFragment"
+        android:name="com.example.pmdm_uf1_jestify_2.ui.favourites.FavouritesFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_favourites" />
 
     <fragment
         android:id="@+id/navigation_create"
-        android:name="com.example.pmdm_uf1_jestify.ui.create.CreateFragment"
+        android:name="com.example.pmdm_uf1_jestify_2.ui.create.CreateFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_create" />
 
     <fragment
         android:id="@+id/jokeFragment"
-        android:name="com.example.pmdm_uf1_jestify.ui.joke.JokeFragment"
+        android:name="com.example.pmdm_uf1_jestify_2.ui.joke.JokeFragment"
         android:label="fragment_joke"
-        tools:layout="@layout/fragment_joke" />
+        tools:layout="@layout/fragment_joke" >
+        <action
+            android:id="@+id/action_jokeFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <argument
+            android:name="jokeType"
+            app:argType="string" />
+    </fragment>
 </navigation>

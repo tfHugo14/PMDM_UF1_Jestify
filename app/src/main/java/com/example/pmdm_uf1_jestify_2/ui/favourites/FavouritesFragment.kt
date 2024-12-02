@@ -1,13 +1,15 @@
-package com.example.pmdm_uf1_jestify.ui.favourites
+package com.example.pmdm_uf1_jestify_2.ui.favourites
 
+import androidx.fragment.app.viewModels
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.pmdm_uf1_jestify.databinding.FragmentFavouritesBinding
+import com.example.pmdm_uf1_jestify_2.R
+import com.example.pmdm_uf1_jestify_2.databinding.FragmentFavouritesBinding
 
 class FavouritesFragment : Fragment() {
 
