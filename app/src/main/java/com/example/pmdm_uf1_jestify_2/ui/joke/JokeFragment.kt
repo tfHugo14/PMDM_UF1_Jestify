@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.example.pmdm_uf1_jestify_2.R
@@ -24,7 +25,6 @@ class JokeFragment : Fragment() {
     ): View {
         _binding = FragmentJokeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
         // initialize JokeViewModel
         val jokeViewModel = ViewModelProvider(this).get(JokeViewModel::class.java)
 
@@ -32,13 +32,41 @@ class JokeFragment : Fragment() {
         val jokeType = arguments?.let {
             JokeFragmentArgs.fromBundle(it).jokeType
         }
-
         // send jokeType to JokeViewModel
         jokeType?.let { jokeViewModel.setJokeType(it) }
 
-        // observe LiveData text to update the textView
-        jokeViewModel.jokeType.observe(viewLifecycleOwner) {
-            jokeType -> binding.textJoke.text = jokeType
+        jokeViewModel.jokeType.observe(viewLifecycleOwner) { // observe LiveData text to update the textView
+                jokeType ->
+            binding.textJoke.text = jokeType
+        }
+
+        val jokeContent = "";
+
+        jokeViewModel.setJokeContent(jokeContent)
+        jokeViewModel.jokeContent.observe(viewLifecycleOwner) { jokeContent ->
+            binding.contentJoke.text = jokeContent
+        }
+
+        val btnSetBookmark: ImageButton = root.findViewById(R.id.btn_set_bookmark)
+        btnSetBookmark.setOnClickListener {
+            btnSetBookmark.isSelected = !btnSetBookmark.isSelected
+        }
+
+        // 5 star rating logic
+        val starList = listOf(
+            root.findViewById<ImageButton>(R.id.btn_set_stars_1),
+            root.findViewById<ImageButton>(R.id.btn_set_stars_2),
+            root.findViewById<ImageButton>(R.id.btn_set_stars_3),
+            root.findViewById<ImageButton>(R.id.btn_set_stars_4),
+            root.findViewById<ImageButton>(R.id.btn_set_stars_5)
+        )
+        starList.forEachIndexed { index, button ->
+            button.setOnClickListener {
+                // select: from first star on list to clicked star
+                for (i in 0..index) { starList[i].isSelected = true }
+                // deselect: from clicked star to starList max size
+                for (i in index + 1 until starList.size) { starList[i].isSelected = false }
+            }
         }
 
         return root

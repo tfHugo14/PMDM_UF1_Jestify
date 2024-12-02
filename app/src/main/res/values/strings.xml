@@ -23,6 +23,8 @@
     <string name="flag_political">political</string>
     <string name="flag_religious">religious</string>
     <string name="flag_nsfw">nsfw</string>
+    <string name="star_btn_description">favourite star button</string>
+    <string name="bookmark_button_description">bookmark button</string>
     <string-array name="joke_types">
         <item>@string/programming</item>
         <item>@string/miscellanea</item>
