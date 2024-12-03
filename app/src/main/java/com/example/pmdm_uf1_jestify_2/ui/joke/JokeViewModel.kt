@@ -16,9 +16,9 @@ class JokeViewModel : ViewModel() {
     }
 
     fun setJokeContent(jokeContent: String) {
-        _jokeContent.value =
-            "What's the difference between an apple and a black guy?\n" +
-            "\nThe apple will eventually fall from the tree that it's hanging from!"
+        _jokeContent.value = jokeContent
+/*            "What's the difference between an apple and a black guy?\n" +
+            "\nThe apple will eventually fall from the tree that it's hanging from!"*/
     }
 
 }

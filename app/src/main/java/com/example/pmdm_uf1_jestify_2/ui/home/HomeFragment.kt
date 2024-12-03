@@ -26,7 +26,7 @@ class HomeFragment : Fragment() {
             findNavController().navigate(action)
         }
         binding.btnMiscellanea.setOnClickListener {
-            val action = HomeFragmentDirections.actionNavigationHomeToJokeFragment("Miscellanea")
+            val action = HomeFragmentDirections.actionNavigationHomeToJokeFragment("Miscellaneous")
             findNavController().navigate(action)
         }
         binding.btnDark.setOnClickListener {

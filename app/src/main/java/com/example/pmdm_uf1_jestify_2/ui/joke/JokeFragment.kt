@@ -1,17 +1,15 @@
 package com.example.pmdm_uf1_jestify_2.ui.joke
 
-import androidx.fragment.app.viewModels
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
-import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.example.pmdm_uf1_jestify_2.R
 import com.example.pmdm_uf1_jestify_2.databinding.FragmentJokeBinding
-import com.example.pmdm_uf1_jestify_2.ui.favourites.FavouritesViewModel
+import com.example.pmdm_uf1_jestify_2.jokeAPI.JokeDAO
 
 class JokeFragment : Fragment() {
 
@@ -36,7 +34,11 @@ class JokeFragment : Fragment() {
             binding.textJoke.text = jokeType
         }
 
-        val jokeContent = "";
+        // retrieve joke from API
+        val jokeDAO = JokeDAO()
+        val joke = jokeDAO.getJokeByCategory("$jokeType")
+        val jokeContent = joke.toString();
+
         jokeViewModel.setJokeContent(jokeContent)
         jokeViewModel.jokeContent.observe(viewLifecycleOwner) { jokeContent ->
             binding.contentJoke.text = jokeContent

@@ -4,8 +4,6 @@ import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.pmdm_uf1_jestify_2.databinding.ActivityMainBinding
 import com.google.android.material.appbar.MaterialToolbar
@@ -30,21 +28,15 @@ class MainActivity : AppCompatActivity() {
         // always navigate to each defined fragment when an icon is clicked in the bottom bar
         navView.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.navigation_home -> {
-                    navController.navigate(R.id.navigation_home)
+                R.id.navigation_home -> { navController.navigate(R.id.navigation_home)
                     true
                 }
-
-                R.id.navigation_favourites -> {
-                    navController.navigate(R.id.navigation_favourites)
+                R.id.navigation_favourites -> { navController.navigate(R.id.navigation_favourites)
                     true
                 }
-
-                R.id.navigation_create -> {
-                    navController.navigate(R.id.navigation_create)
+                R.id.navigation_create -> { navController.navigate(R.id.navigation_create)
                     true
                 }
-
                 else -> false
             }
         }
