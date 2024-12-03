@@ -25,30 +25,30 @@ class JokeFragment : Fragment() {
     ): View {
         _binding = FragmentJokeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        val jokeViewModel = ViewModelProvider(this).get(JokeViewModel::class.java) // initialize JokeViewModel
+        // initialize JokeViewModel
+        val jokeViewModel = ViewModelProvider(this).get(JokeViewModel::class.java)
 
-        val jokeType = arguments?.let { JokeFragmentArgs.fromBundle(it).jokeType } // retrieve arg from nav bundle
-
+        val jokeType = arguments?.let { JokeFragmentArgs.fromBundle(it).jokeType } // retrieve arg from nav-bundle
         jokeType?.let { jokeViewModel.setJokeType(it) } // send jokeType to JokeViewModel
 
-        jokeViewModel.jokeType.observe(viewLifecycleOwner) { // observe LiveData text to update the textView
-                jokeType ->
+        // LiveData's need a call to the observe method to be able to dynamically change jokeType if it updates
+        jokeViewModel.jokeType.observe(viewLifecycleOwner) { jokeType ->
             binding.textJoke.text = jokeType
         }
 
         val jokeContent = "";
-
         jokeViewModel.setJokeContent(jokeContent)
         jokeViewModel.jokeContent.observe(viewLifecycleOwner) { jokeContent ->
             binding.contentJoke.text = jokeContent
         }
 
+        //
         val btnSetBookmark: ImageButton = root.findViewById(R.id.btn_set_bookmark)
         btnSetBookmark.setOnClickListener {
             btnSetBookmark.isSelected = !btnSetBookmark.isSelected
         }
 
-        // 5 star rating logic
+        // 5 star rating bar
         val starList = listOf(
             root.findViewById<ImageButton>(R.id.btn_set_stars_1),
             root.findViewById<ImageButton>(R.id.btn_set_stars_2),

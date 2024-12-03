@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         // always navigate to each defined fragment when an icon is clicked in the bottom bar
-/*        navView.setOnItemSelectedListener { item ->
+        navView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_home -> {
                     navController.navigate(R.id.navigation_home)
@@ -47,6 +47,6 @@ class MainActivity : AppCompatActivity() {
 
                 else -> false
             }
-        }*/
+        }
     }
 }
