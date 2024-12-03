@@ -25,15 +25,11 @@ class JokeFragment : Fragment() {
     ): View {
         _binding = FragmentJokeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        // initialize JokeViewModel
-        val jokeViewModel = ViewModelProvider(this).get(JokeViewModel::class.java)
+        val jokeViewModel = ViewModelProvider(this).get(JokeViewModel::class.java) // initialize JokeViewModel
 
-        // retrive argument
-        val jokeType = arguments?.let {
-            JokeFragmentArgs.fromBundle(it).jokeType
-        }
-        // send jokeType to JokeViewModel
-        jokeType?.let { jokeViewModel.setJokeType(it) }
+        val jokeType = arguments?.let { JokeFragmentArgs.fromBundle(it).jokeType } // retrieve arg from nav bundle
+
+        jokeType?.let { jokeViewModel.setJokeType(it) } // send jokeType to JokeViewModel
 
         jokeViewModel.jokeType.observe(viewLifecycleOwner) { // observe LiveData text to update the textView
                 jokeType ->
@@ -62,10 +58,8 @@ class JokeFragment : Fragment() {
         )
         starList.forEachIndexed { index, button ->
             button.setOnClickListener {
-                // select: from first star on list to clicked star
-                for (i in 0..index) { starList[i].isSelected = true }
-                // deselect: from clicked star to starList max size
-                for (i in index + 1 until starList.size) { starList[i].isSelected = false }
+                for (i in 0..index) { starList[i].isSelected = true } // select: from first star on list to the clicked star
+                for (i in index + 1 until starList.size) { starList[i].isSelected = false } // deselect: from (clicked star + 1) index to starList max size
             }
         }
 

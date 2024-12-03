@@ -26,5 +26,27 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
 
         navView.setupWithNavController(navController)
+
+        // always navigate to each defined fragment when an icon is clicked in the bottom bar
+/*        navView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_home -> {
+                    navController.navigate(R.id.navigation_home)
+                    true
+                }
+
+                R.id.navigation_favourites -> {
+                    navController.navigate(R.id.navigation_favourites)
+                    true
+                }
+
+                R.id.navigation_create -> {
+                    navController.navigate(R.id.navigation_create)
+                    true
+                }
+
+                else -> false
+            }
+        }*/
     }
 }

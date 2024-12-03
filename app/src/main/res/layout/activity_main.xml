@@ -9,8 +9,8 @@
     >
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
-        style="@style/Widget.MaterialComponents.Toolbar.Primary"
-        android:background="#5bbab5"
+        style="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
+        android:background="?attr/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
-        android:background="#5bbab5"
+        android:background="?attr/colorPrimary"
         app:itemIconTint="@color/bottom_menu_icon_color"
         app:itemTextColor="@color/bottom_menu_icon_color"
         app:menu="@menu/bottom_menu"

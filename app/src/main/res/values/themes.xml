@@ -1,23 +1,33 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Theme.PMDM_UF1_Jestify_2" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- prevents crashes -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <!-- colors -->
         <item name="colorPrimary">@color/dim_teal</item>
         <item name="colorPrimaryVariant">@color/red</item>
         <item name="colorOnPrimary">@color/white</item>
 
-        <item name="colorSecondary">@color/grey</item>
+        <item name="colorSecondary">@color/dim_grey</item>
         <item name="colorSecondaryVariant">@color/darker_teal</item>
         <item name="colorOnSecondary">@color/light_teal</item>
 
+        <!-- container colors -->
         <item name="colorPrimaryContainer">@color/dim_teal</item>
         <item name="colorOnPrimaryContainer">@color/light_teal</item>
+
         <item name="colorSecondaryContainer">@color/darker_teal</item>
         <item name="colorOnSecondaryContainer">@color/dim_teal</item>
+
         <item name="colorTertiaryContainer">@color/light_grey</item>
         <item name="colorOnTertiaryContainer">@color/grey</item>
 
+        <!-- background colors -->
         <item name="android:colorBackground">@color/white</item>
-        <item name="colorOnBackground">@color/light_teal</item>
+        <item name="colorOnBackground">@color/white</item>
 
-        <item name="android:statusBarColor">?attr/colorSecondaryVariant</item>
+        <!-- the small bar at top with the battery, wifi, etc. symbols -->
+        <item name="android:statusBarColor">@color/darker_teal</item>
     </style>
 </resources>
