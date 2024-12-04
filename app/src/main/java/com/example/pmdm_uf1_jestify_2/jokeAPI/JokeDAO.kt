@@ -2,6 +2,7 @@ package com.example.pmdm_uf1_jestify_2.jokeAPI
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.google.gson.JsonSyntaxException
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -11,7 +12,6 @@ import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.net.URI
 import java.net.URLEncoder
-
 
 class JokeDAO : IJokeDAO {
     private val gson: Gson = Gson()
@@ -34,12 +34,18 @@ class JokeDAO : IJokeDAO {
 
             if (response.isSuccessful) {
                 val jsonResponse = response.body?.string()
-                println("JSON Response: $jsonResponse") // Debugging
+                println("Raw JSON Response: $jsonResponse")
+
+                // Parse the response
                 return@withContext gson.fromJson(jsonResponse, Joke::class.java)
             } else {
                 println("Failed to fetch joke: ${response.code}")
             }
+        } catch (e: JsonSyntaxException) {
+            println("Json Parsing Error: ${e.message}")
+            e.printStackTrace()
         } catch (e: Exception) {
+            println("Error fetching joke: ${e.message}")
             e.printStackTrace()
         }
         return@withContext null

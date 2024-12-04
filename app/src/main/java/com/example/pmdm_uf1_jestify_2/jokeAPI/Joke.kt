@@ -1,14 +1,16 @@
 package com.example.pmdm_uf1_jestify_2.jokeAPI
 
+import com.google.gson.annotations.SerializedName
+
 data class Joke(
-    var error: Boolean? = false,
-    var category: String? = null,
-    var type: String? = null,
-    var joke: String? = null,
-    var setup: String? = null,
-    var delivery: String? = null,
-    var flags: Map<Flags, Boolean>? = null,
-    var id: Int? = 0,
-    var safe: Boolean? = false,
-    var lang: String? = null
+    val error: Boolean,
+    val category: String?,
+    val type: String?,
+    val joke: String?,
+    @SerializedName("setup") val setUp: String?, // Correct casing
+    val delivery: String?,
+    val flags: Map<String, Boolean>?,
+    val id: Int?,
+    val safe: Boolean?,
+    val lang: String?
 )

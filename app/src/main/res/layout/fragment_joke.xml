@@ -8,134 +8,147 @@
     android:orientation="vertical"
     tools:context=".ui.joke.JokeFragment">
 
-    <TextView
-        android:id="@+id/text_joke"
+    <androidx.core.widget.NestedScrollView
+        app:layout_anchor="@+id/linear_layout_joke_fragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="25sp" />
+        android:layout_height="match_parent"
+        app:layout_anchorGravity="center"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="8dp">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorOnBackground"
-            android:orientation="vertical"
-            android:padding="20dp"
-            >
-            <ImageButton
-                android:id="@+id/btn_set_bookmark"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="end"
-                android:layout_marginStart="4dp"
-                android:src="@drawable/ic_bookmark"
-                android:background="?attr/colorOnBackground"
-                android:contentDescription="@string/bookmark_button_description"
-                android:scaleType="fitCenter"
-                app:tint="@drawable/bookmark_selector"
-                android:focusable="true"
-                android:clickable="true" />
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
             <TextView
-                android:id="@+id/content_joke"
+                android:id="@+id/text_joke"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:textAlignment="textStart"
-                android:textSize="20sp" />
+                android:layout_marginTop="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:textAlignment="center"
+                android:textSize="25sp" />
 
-            <LinearLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center">
-                <ImageButton
-                    android:id="@+id/btn_set_stars_1"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:src="@drawable/ic_favourite"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="?attr/colorOnBackground"
-                    android:contentDescription="@string/star_btn_description"
-                    android:scaleType="fitCenter"
-                    app:tint="@drawable/star_favourite_selector"
-                    android:focusable="true"
-                    android:clickable="true" />
-                <ImageButton
-                    android:id="@+id/btn_set_stars_2"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:src="@drawable/ic_favourite"
-                    android:background="?attr/colorOnBackground"
-                    android:contentDescription="@string/star_btn_description"
-                    android:scaleType="fitCenter"
-                    app:tint="@drawable/star_favourite_selector"
-                    android:focusable="true"
-                    android:clickable="true" />
-                <ImageButton
-                    android:id="@+id/btn_set_stars_3"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:src="@drawable/ic_favourite"
-                    android:background="?attr/colorOnBackground"
-                    android:contentDescription="@string/star_btn_description"
-                    android:scaleType="fitCenter"
-                    app:tint="@drawable/star_favourite_selector"
-                    android:focusable="true"
-                    android:clickable="true" />
-                <ImageButton
-                    android:id="@+id/btn_set_stars_4"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:src="@drawable/ic_favourite"
-                    android:background="?attr/colorOnBackground"
-                    android:contentDescription="@string/star_btn_description"
-                    android:scaleType="fitCenter"
-                    app:tint="@drawable/star_favourite_selector"
-                    android:focusable="true"
-                    android:clickable="true" />
-                <ImageButton
-                    android:id="@+id/btn_set_stars_5"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:src="@drawable/ic_favourite"
-                    android:background="?attr/colorOnBackground"
-                    android:contentDescription="@string/star_btn_description"
-                    android:scaleType="fitCenter"
-                    app:tint="@drawable/star_favourite_selector"
-                    android:focusable="true"
-                    android:clickable="true" />
-            </LinearLayout>
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    >
+                    <ImageButton
+                        android:id="@+id/btn_set_bookmark"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="end"
+                        android:layout_marginStart="4dp"
+                        android:src="@drawable/ic_bookmark"
+                        android:background="?attr/colorOnBackground"
+                        android:contentDescription="@string/bookmark_button_description"
+                        android:scaleType="fitCenter"
+                        app:tint="@drawable/bookmark_selector"
+                        android:focusable="true"
+                        android:clickable="true" />
+                    <TextView
+                        android:id="@+id/content_joke"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:textAlignment="textStart"
+                        android:textSize="20sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+                        <ImageButton
+                            android:id="@+id/btn_set_stars_1"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:src="@drawable/ic_favourite"
+                            android:background="?attr/colorOnBackground"
+                            android:contentDescription="@string/star_btn_description"
+                            android:scaleType="fitCenter"
+                            app:tint="@drawable/star_favourite_selector"
+                            android:focusable="true"
+                            android:clickable="true" />
+                        <ImageButton
+                            android:id="@+id/btn_set_stars_2"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:src="@drawable/ic_favourite"
+                            android:background="?attr/colorOnBackground"
+                            android:contentDescription="@string/star_btn_description"
+                            android:scaleType="fitCenter"
+                            app:tint="@drawable/star_favourite_selector"
+                            android:focusable="true"
+                            android:clickable="true" />
+                        <ImageButton
+                            android:id="@+id/btn_set_stars_3"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:src="@drawable/ic_favourite"
+                            android:background="?attr/colorOnBackground"
+                            android:contentDescription="@string/star_btn_description"
+                            android:scaleType="fitCenter"
+                            app:tint="@drawable/star_favourite_selector"
+                            android:focusable="true"
+                            android:clickable="true" />
+                        <ImageButton
+                            android:id="@+id/btn_set_stars_4"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:src="@drawable/ic_favourite"
+                            android:background="?attr/colorOnBackground"
+                            android:contentDescription="@string/star_btn_description"
+                            android:scaleType="fitCenter"
+                            app:tint="@drawable/star_favourite_selector"
+                            android:focusable="true"
+                            android:clickable="true" />
+                        <ImageButton
+                            android:id="@+id/btn_set_stars_5"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:src="@drawable/ic_favourite"
+                            android:background="?attr/colorOnBackground"
+                            android:contentDescription="@string/star_btn_description"
+                            android:scaleType="fitCenter"
+                            app:tint="@drawable/star_favourite_selector"
+                            android:focusable="true"
+                            android:clickable="true" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/btn_create_joke"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginBottom="150dp"
+                android:layout_marginRight="100dp"
+                android:text="New Joke" />
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <Button
-        android:id="@+id/btn_create_joke"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginBottom="150dp"
-        android:layout_marginRight="100dp"
-        android:text="New Joke" />
-
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>

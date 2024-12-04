@@ -5,11 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageButton
 import androidx.lifecycle.ViewModelProvider
 import com.example.pmdm_uf1_jestify_2.R
 import com.example.pmdm_uf1_jestify_2.databinding.FragmentJokeBinding
 import com.example.pmdm_uf1_jestify_2.jokeAPI.JokeDAO
+import com.example.pmdm_uf1_jestify_2.jokeAPI.JokeViewModelFactory
 
 class JokeFragment : Fragment() {
 
@@ -23,34 +25,25 @@ class JokeFragment : Fragment() {
     ): View {
         _binding = FragmentJokeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        // initialize JokeViewModel
-        val jokeViewModel = ViewModelProvider(this).get(JokeViewModel::class.java)
 
-        val jokeType = arguments?.let { JokeFragmentArgs.fromBundle(it).jokeType } // retrieve arg from nav-bundle
-        jokeType?.let { jokeViewModel.setJokeType(it) } // send jokeType to JokeViewModel
-
-        // LiveData's need a call to the observe method to be able to dynamically change jokeType if it updates
-        jokeViewModel.jokeType.observe(viewLifecycleOwner) { jokeType ->
-            binding.textJoke.text = jokeType
-        }
-
-        // retrieve joke from API
+        // Initialize JokeViewModel
         val jokeDAO = JokeDAO()
-        val joke = jokeDAO.getJokeByCategory(jokeType)
-        val jokeContent = jokeType+"\n"+joke;
+        val jokeViewModel = ViewModelProvider(this, JokeViewModelFactory(jokeDAO))
+            .get(JokeViewModel::class.java)
 
-        jokeViewModel.setJokeContent(jokeContent)
-        jokeViewModel.jokeContent.observe(viewLifecycleOwner) { jokeContent ->
-            binding.contentJoke.text = jokeContent
-        }
+        // Retrieve argument from navigation bundle
+        val jokeType = arguments?.let { JokeFragmentArgs.fromBundle(it).jokeType }
+        jokeType?.let { jokeViewModel.setJokeType(it) }
 
-        //
+        // Observe jokeType and jokeContent
+        jokeViewModel.jokeType.observe(viewLifecycleOwner) { jokeType -> binding.textJoke.text = jokeType }
+        jokeViewModel.jokeContent.observe(viewLifecycleOwner) { jokeContent -> binding.contentJoke.text = jokeContent }
+
+        // Bookmark and star rating logic
         val btnSetBookmark: ImageButton = root.findViewById(R.id.btn_set_bookmark)
         btnSetBookmark.setOnClickListener {
             btnSetBookmark.isSelected = !btnSetBookmark.isSelected
         }
-
-        // 5 star rating bar
         val starList = listOf(
             root.findViewById<ImageButton>(R.id.btn_set_stars_1),
             root.findViewById<ImageButton>(R.id.btn_set_stars_2),
@@ -60,8 +53,21 @@ class JokeFragment : Fragment() {
         )
         starList.forEachIndexed { index, button ->
             button.setOnClickListener {
-                for (i in 0..index) { starList[i].isSelected = true } // select: from first star on list to the clicked star
-                for (i in index + 1 until starList.size) { starList[i].isSelected = false } // deselect: from (clicked star + 1) index to starList max size
+                for (i in 0..index) starList[i].isSelected = true
+                for (i in index + 1 until starList.size) starList[i].isSelected = false
+            }
+        }
+
+        // New Joke Button
+        val btnCreateJoke: Button = root.findViewById(R.id.btn_create_joke)
+        btnCreateJoke.setOnClickListener {
+            // Reset bookmark and star rating
+            if (btnSetBookmark.isSelected) { btnSetBookmark.isSelected = false }
+            for (i in 0 until starList.size) starList[i].isSelected = false
+
+            // Fetch new joke
+            jokeType?.let {
+                jokeViewModel.fetchJokeContent(it)
             }
         }
 

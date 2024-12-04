@@ -16,14 +16,26 @@ class JokeViewModel(private val jokeDAO: JokeDAO) : ViewModel() {
 
     fun setJokeType(jokeType: String) {
         _jokeType.value = jokeType
+        fetchJokeContent(jokeType) // Trigger fetching the joke when jokeType is set
     }
 
-    fun setJokeContent(jokeContent: String) {
-        _jokeContent.value = jokeContent
-/*            "What's the difference between an apple and a black guy?\n" +
+    fun fetchJokeContent(jokeType: String) {
+        viewModelScope.launch {
+            try {
+                val joke = jokeDAO.getJokeByCategory(jokeType) // Call suspend function
+                val jokeContent = joke?.joke ?: "No joke available"
+                _jokeContent.postValue(jokeContent) // Update LiveData with fetched joke
+            } catch (e: Exception) {
+                e.printStackTrace()
+                _jokeContent.postValue("Failed to load joke")
+            }
+        }
+    }
+}
+
+/*
+        "What's the difference between an apple and a black guy?\n" +
             "\nThe apple will eventually fall from the tree that it's hanging from!"*/
-    }
-
 /*
     fun fetchJoke(category: String) {
         viewModelScope.launch {
@@ -32,4 +44,3 @@ class JokeViewModel(private val jokeDAO: JokeDAO) : ViewModel() {
         }
     }
 */
-}
