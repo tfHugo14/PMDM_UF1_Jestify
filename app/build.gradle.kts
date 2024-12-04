@@ -40,6 +40,10 @@ android {
 }
 
 dependencies {
+    implementation(libs.coroutines.android)
+    implementation(libs.okhttp)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
     implementation(libs.gson)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

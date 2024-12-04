@@ -36,8 +36,8 @@ class JokeFragment : Fragment() {
 
         // retrieve joke from API
         val jokeDAO = JokeDAO()
-        val joke = jokeDAO.getJokeByCategory("$jokeType")
-        val jokeContent = joke.toString();
+        val joke = jokeDAO.getJokeByCategory(jokeType)
+        val jokeContent = jokeType+"\n"+joke;
 
         jokeViewModel.setJokeContent(jokeContent)
         jokeViewModel.jokeContent.observe(viewLifecycleOwner) { jokeContent ->

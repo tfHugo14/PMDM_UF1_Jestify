@@ -64,8 +64,8 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
                 android:background="@color/dim_teal"
-                android:popupBackground="@color/light_grey"
-                android:padding="5dp"
+                android:popupBackground="@color/light_teal"
+                android:padding="0dp"
                 android:entries="@array/joke_types" />
 
             <com.google.android.material.chip.ChipGroup

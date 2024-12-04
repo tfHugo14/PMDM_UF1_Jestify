@@ -15,7 +15,7 @@ class JokeAdapter: JsonDeserializer<Joke> {
             type =  jsonObject?.get("type")?.asString,
 
             joke = jsonObject?.get("joke")?.asString,
-            setUp = jsonObject?.get("setUp")?.asString,
+            setup = jsonObject?.get("setUp")?.asString,
             delivery = jsonObject?.get("delivery")?.asString,
 
             flags = jsonObject?.getAsJsonObject("flags")?.entrySet()?.associate {

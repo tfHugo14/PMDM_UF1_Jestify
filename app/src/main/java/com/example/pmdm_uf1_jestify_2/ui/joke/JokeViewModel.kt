@@ -3,8 +3,11 @@ package com.example.pmdm_uf1_jestify_2.ui.joke
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.pmdm_uf1_jestify_2.jokeAPI.JokeDAO
+import kotlinx.coroutines.launch
 
-class JokeViewModel : ViewModel() {
+class JokeViewModel(private val jokeDAO: JokeDAO) : ViewModel() {
     private val _jokeType = MutableLiveData<String>()
     private val _jokeContent = MutableLiveData<String>()
 
@@ -21,4 +24,12 @@ class JokeViewModel : ViewModel() {
             "\nThe apple will eventually fall from the tree that it's hanging from!"*/
     }
 
+/*
+    fun fetchJoke(category: String) {
+        viewModelScope.launch {
+            val joke = jokeDAO.getJokeByCategory(category)
+            _jokeContent.value = "Fetched Joke: $joke"
+        }
+    }
+*/
 }
