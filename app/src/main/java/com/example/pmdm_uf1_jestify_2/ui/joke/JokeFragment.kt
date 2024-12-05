@@ -28,8 +28,9 @@ class JokeFragment : Fragment() {
 
         // Initialize JokeViewModel
         val jokeDAO = JokeDAO()
-        val jokeViewModel = ViewModelProvider(this, JokeViewModelFactory(jokeDAO))
-            .get(JokeViewModel::class.java)
+
+        // We use jokeViewModelFactory to pass the JokeDAO instance to the JokeViewModel
+        val jokeViewModel = ViewModelProvider(this, JokeViewModelFactory(jokeDAO)).get(JokeViewModel::class.java)
 
         // Retrieve argument from navigation bundle
         val jokeType = arguments?.let { JokeFragmentArgs.fromBundle(it).jokeType }
@@ -53,8 +54,8 @@ class JokeFragment : Fragment() {
         )
         starList.forEachIndexed { index, button ->
             button.setOnClickListener {
-                for (i in 0..index) starList[i].isSelected = true
-                for (i in index + 1 until starList.size) starList[i].isSelected = false
+                for (i in 0..index) starList[i].isSelected = true // select from leftmost to clicked star
+                for (i in index + 1 until starList.size) starList[i].isSelected = false // deselect from clicked star to rightmost
             }
         }
 

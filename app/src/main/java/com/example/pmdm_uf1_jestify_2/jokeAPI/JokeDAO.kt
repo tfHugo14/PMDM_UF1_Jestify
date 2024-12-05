@@ -28,6 +28,7 @@ class JokeDAO : IJokeDAO {
     }
 
     override suspend fun getJoke(url: String): Joke? = withContext(Dispatchers.IO) {
+        // This method uses a coroutine because main doesn't allow internet access
         try {
             val request = Request.Builder().url(url).build()
             val response = client.newCall(request).execute()

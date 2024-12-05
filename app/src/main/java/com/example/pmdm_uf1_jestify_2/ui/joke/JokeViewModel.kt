@@ -23,7 +23,15 @@ class JokeViewModel(private val jokeDAO: JokeDAO) : ViewModel() {
         viewModelScope.launch {
             try {
                 val joke = jokeDAO.getJokeByCategory(jokeType) // Call suspend function
-                val jokeContent = joke?.joke ?: "No joke available"
+
+                var jokeContent = joke?.joke ?: "No joke available"
+
+                if (joke?.setUp != null && joke.delivery != null)
+                    jokeContent = (joke.setUp + "\n\n" + joke.delivery)
+
+                if (joke?.id != null)
+                    jokeContent = "Nº "+joke.id.toString() + "\n" + jokeContent
+
                 _jokeContent.postValue(jokeContent) // Update LiveData with fetched joke
             } catch (e: Exception) {
                 e.printStackTrace()
