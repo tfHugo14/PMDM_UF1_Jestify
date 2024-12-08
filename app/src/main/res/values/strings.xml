@@ -15,8 +15,8 @@
     <string name="programming">Programming</string>
     <string name="btn_create_joke">Create Joke</string>
     <string name="create_joke_text">Create a Joke yourself!</string>
-    <string name="joke_setup">Joke Setup</string>
-    <string name="joke_delivery">Joke Delivery</string>
+    <string name="joke_setup">Setup:</string>
+    <string name="joke_delivery">Delivery:</string>
     <string name="flag_explicit">explicit</string>
     <string name="flag_sexist">sexist</string>
     <string name="flag_racist">racist</string>
@@ -25,6 +25,8 @@
     <string name="flag_nsfw">nsfw</string>
     <string name="star_btn_description">favourite star button</string>
     <string name="bookmark_button_description">bookmark button</string>
+    <string name="text_view_flags">Flags:</string>
+    <string name="text_view_category">Category:</string>
     <string-array name="joke_types">
         <item>@string/programming</item>
         <item>@string/miscellanea</item>

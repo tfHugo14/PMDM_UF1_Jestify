@@ -1,0 +1,70 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="end"
+        android:padding="16dp">
+
+        <ImageButton
+            android:id="@+id/deleteJokeButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="end"
+            android:layout_marginStart="4dp"
+            android:src="@drawable/ic_bookmark"
+            android:background="?attr/colorOnBackground"
+            android:contentDescription="@string/bookmark_button_description"
+            android:scaleType="fitCenter"
+            app:tint="@drawable/favourite_bookmark_selector"
+            android:focusable="true"
+            android:clickable="true" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        >
+        <TextView
+            android:id="@+id/textCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Category"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textJoke"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Joke" />
+
+        <TextView
+            android:id="@+id/textSetup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Setup" />
+
+        <TextView
+            android:id="@+id/textDelivery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delivery" />
+
+        <TextView
+            android:id="@+id/textFlags"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Flags"
+            android:textStyle="italic" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

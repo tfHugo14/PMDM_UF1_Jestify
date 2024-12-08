@@ -7,11 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.pmdm_uf1_jestify_2.R
 import com.example.pmdm_uf1_jestify_2.databinding.FragmentJokeBinding
+import com.example.pmdm_uf1_jestify_2.jokeAPI.Joke
 import com.example.pmdm_uf1_jestify_2.jokeAPI.JokeDAO
-import com.example.pmdm_uf1_jestify_2.jokeAPI.JokeViewModelFactory
+import com.example.pmdm_uf1_jestify_2.ui.create.CreateViewModel
 
 class JokeFragment : Fragment() {
 
@@ -28,9 +30,10 @@ class JokeFragment : Fragment() {
 
         // Initialize JokeViewModel
         val jokeDAO = JokeDAO()
-
         // We use jokeViewModelFactory to pass the JokeDAO instance to the JokeViewModel
         val jokeViewModel = ViewModelProvider(this, JokeViewModelFactory(jokeDAO)).get(JokeViewModel::class.java)
+        // Get the CreateViewModel so that we can add joke's to favourites
+        val createViewModel = ViewModelProvider(requireActivity()).get(CreateViewModel::class.java)
 
         // Retrieve argument from navigation bundle
         val jokeType = arguments?.let { JokeFragmentArgs.fromBundle(it).jokeType }
@@ -44,7 +47,30 @@ class JokeFragment : Fragment() {
         val btnSetBookmark: ImageButton = root.findViewById(R.id.btn_set_bookmark)
         btnSetBookmark.setOnClickListener {
             btnSetBookmark.isSelected = !btnSetBookmark.isSelected
+
+            if (btnSetBookmark.isSelected) { // select and deselect bookmark button and add joke to Favourites
+                val lastJoke = jokeViewModel.lastFetchedJoke.value
+                if (lastJoke != null) {
+                    val bookmarkedJoke = Joke(
+                        error = lastJoke.error,
+                        category = lastJoke.category,
+                        type = lastJoke.type,
+                        joke = lastJoke.joke,
+                        setUp = lastJoke.setUp,
+                        delivery = lastJoke.delivery,
+                        flags = lastJoke.flags,
+                        id = lastJoke.id ?: 9999,
+                        safe = lastJoke.safe,
+                        lang = lastJoke.lang
+                    )
+                    createViewModel.addJoke(bookmarkedJoke) // Save joke to shared ViewModel
+                    Toast.makeText(requireContext(), "Joke bookmarked!", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(requireContext(), "No joke to bookmark!", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
+
         val starList = listOf(
             root.findViewById<ImageButton>(R.id.btn_set_stars_1),
             root.findViewById<ImageButton>(R.id.btn_set_stars_2),

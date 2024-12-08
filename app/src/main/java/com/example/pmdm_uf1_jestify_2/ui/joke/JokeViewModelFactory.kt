@@ -1,8 +1,8 @@
-package com.example.pmdm_uf1_jestify_2.jokeAPI
+package com.example.pmdm_uf1_jestify_2.ui.joke
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.pmdm_uf1_jestify_2.ui.joke.JokeViewModel
+import com.example.pmdm_uf1_jestify_2.jokeAPI.JokeDAO
 
 class JokeViewModelFactory(private val jokeDAO: JokeDAO) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

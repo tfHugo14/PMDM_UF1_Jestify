@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">PMDM_UF1_Jestify</string>
+    <string name="title_home">Inicio</string>
+    <string name="title_dashboard">Tablero</string>
+    <string name="title_notifications">Notificaciones</string>
+    <string name="favourites">Favoritos</string>
+    <string name="create">Crear</string>
+    <string name="jestify">Jestify</string>
+    <string name="jestify_icon_description">Icono de Jestify</string>
+    <string name="spooky">Terror</string>
+    <string name="christmas">Navidad</string>
+    <string name="pun">Juego de palabras</string>
+    <string name="dark">Oscuro</string>
+    <string name="miscellanea">Miscelánea</string>
+    <string name="programming">Programación</string>
+    <string name="btn_create_joke">Crear Broma</string>
+    <string name="create_joke_text">¡Crea una broma tú mismo!</string>
+    <string name="joke_setup">Inicio:</string>
+    <string name="joke_delivery">Entrega:</string>
+    <string name="flag_explicit">explícito</string>
+    <string name="flag_sexist">sexista</string>
+    <string name="flag_racist">racista</string>
+    <string name="flag_political">político</string>
+    <string name="flag_religious">religioso</string>
+    <string name="flag_nsfw">nsfw</string>
+    <string name="star_btn_description">botón estrella de favoritos</string>
+    <string name="bookmark_button_description">botón de marcador</string>
+    <string name="text_view_flags">Banderas:</string>
+    <string name="text_view_category">Categoría:</string>
+    <string-array name="joke_types">
+        <item>@string/programming</item>
+        <item>@string/miscellanea</item>
+        <item>@string/dark</item>
+        <item>@string/pun</item>
+        <item>@string/spooky</item>
+        <item>@string/christmas</item>
+    </string-array>
+</resources>

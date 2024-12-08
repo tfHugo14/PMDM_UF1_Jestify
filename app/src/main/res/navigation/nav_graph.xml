@@ -19,7 +19,11 @@
         android:id="@+id/navigation_favourites"
         android:name="com.example.pmdm_uf1_jestify_2.ui.favourites.FavouritesFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_favourites" />
+        tools:layout="@layout/fragment_favourites" >
+        <action
+            android:id="@+id/action_navigation_favourites_to_navigation_create"
+            app:destination="@id/navigation_create" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_create"
