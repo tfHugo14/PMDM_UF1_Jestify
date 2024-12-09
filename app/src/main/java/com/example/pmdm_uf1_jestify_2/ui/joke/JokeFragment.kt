@@ -100,6 +100,7 @@ class JokeFragment : Fragment() {
                 btnSetBookmark.isSelected = false
             }
             starList.forEach { it.isSelected = false }
+
             jokeViewModel.fetchJokeContent(jokeViewModel.jokeType.value ?: "")
         }
 
