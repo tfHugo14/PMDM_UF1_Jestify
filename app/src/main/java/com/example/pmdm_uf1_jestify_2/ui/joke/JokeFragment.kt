@@ -20,6 +20,10 @@ class JokeFragment : Fragment() {
     private var _binding: FragmentJokeBinding? = null
     private val binding get() = _binding!!
 
+    // Declare ViewModel variables at the class level
+    private lateinit var jokeViewModel: JokeViewModel
+    private lateinit var createViewModel: CreateViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,27 +32,31 @@ class JokeFragment : Fragment() {
         _binding = FragmentJokeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        // Initialize JokeViewModel
+        // Initialize ViewModels
         val jokeDAO = JokeDAO()
-        // We use jokeViewModelFactory to pass the JokeDAO instance to the JokeViewModel
-        val jokeViewModel = ViewModelProvider(this, JokeViewModelFactory(jokeDAO)).get(JokeViewModel::class.java)
-        // Get the CreateViewModel so that we can add joke's to favourites
-        val createViewModel = ViewModelProvider(requireActivity()).get(CreateViewModel::class.java)
+        jokeViewModel = ViewModelProvider(this, JokeViewModelFactory(jokeDAO)).get(JokeViewModel::class.java)
+        createViewModel = ViewModelProvider(requireActivity()).get(CreateViewModel::class.java)
 
-        // Retrieve argument from navigation bundle
-        val jokeType = arguments?.let { JokeFragmentArgs.fromBundle(it).jokeType }
-        jokeType?.let { jokeViewModel.setJokeType(it) }
+        // Set the jokeType if it hasn't been set
+        if (jokeViewModel.jokeType.value == null) {
+            val jokeType = arguments?.let { JokeFragmentArgs.fromBundle(it).jokeType }
+            jokeType?.let { jokeViewModel.setJokeType(it) }
+        }
 
-        // Observe jokeType and jokeContent
-        jokeViewModel.jokeType.observe(viewLifecycleOwner) { jokeType -> binding.textJoke.text = jokeType }
-        jokeViewModel.jokeContent.observe(viewLifecycleOwner) { jokeContent -> binding.contentJoke.text = jokeContent }
+        // Observe Live Data's
+        jokeViewModel.jokeType.observe(viewLifecycleOwner) { jokeType ->
+            binding.textJoke.text = jokeType
+        }
+        jokeViewModel.jokeContent.observe(viewLifecycleOwner) { jokeContent ->
+            binding.contentJoke.text = jokeContent
+        }
 
-        // Bookmark and star rating logic
+        // Bookmark logic
         val btnSetBookmark: ImageButton = root.findViewById(R.id.btn_set_bookmark)
         btnSetBookmark.setOnClickListener {
             btnSetBookmark.isSelected = !btnSetBookmark.isSelected
 
-            if (btnSetBookmark.isSelected) { // select and deselect bookmark button and add joke to Favourites
+            if (btnSetBookmark.isSelected) {
                 val lastJoke = jokeViewModel.lastFetchedJoke.value
                 if (lastJoke != null) {
                     val bookmarkedJoke = Joke(
@@ -63,14 +71,14 @@ class JokeFragment : Fragment() {
                         safe = lastJoke.safe,
                         lang = lastJoke.lang
                     )
-                    createViewModel.addJoke(bookmarkedJoke) // Save joke to shared ViewModel
+                    createViewModel.addJoke(bookmarkedJoke)
                     Toast.makeText(requireContext(), "Joke bookmarked!", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(requireContext(), "No joke to bookmark!", Toast.LENGTH_SHORT).show()
                 }
             }
         }
-
+        // Star rating logic
         val starList = listOf(
             root.findViewById<ImageButton>(R.id.btn_set_stars_1),
             root.findViewById<ImageButton>(R.id.btn_set_stars_2),
@@ -80,22 +88,19 @@ class JokeFragment : Fragment() {
         )
         starList.forEachIndexed { index, button ->
             button.setOnClickListener {
-                for (i in 0..index) starList[i].isSelected = true // select from leftmost to clicked star
-                for (i in index + 1 until starList.size) starList[i].isSelected = false // deselect from clicked star to rightmost
+                for (i in 0..index) starList[i].isSelected = true
+                for (i in index + 1 until starList.size) starList[i].isSelected = false
             }
         }
 
         // New Joke Button
         val btnCreateJoke: Button = root.findViewById(R.id.btn_create_joke)
         btnCreateJoke.setOnClickListener {
-            // Reset bookmark and star rating
-            if (btnSetBookmark.isSelected) { btnSetBookmark.isSelected = false }
-            for (i in 0 until starList.size) starList[i].isSelected = false
-
-            // Fetch new joke
-            jokeType?.let {
-                jokeViewModel.fetchJokeContent(it)
+            if (btnSetBookmark.isSelected) {
+                btnSetBookmark.isSelected = false
             }
+            starList.forEach { it.isSelected = false }
+            jokeViewModel.fetchJokeContent(jokeViewModel.jokeType.value ?: "")
         }
 
         return root
